@@ -1,0 +1,129 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 1,
+    "pending": 0,
+    "failures": 1,
+    "start": "2026-01-23T02:47:28.314Z",
+    "end": "2026-01-23T02:47:58.654Z",
+    "duration": 30340,
+    "testsRegistered": 2,
+    "passPercent": 50,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "f362f87c-1bec-422e-ae64-62749cb60fb8",
+      "title": "",
+      "fullFile": "cypress\\e2e\\web\\BuscarTest.cy.js",
+      "file": "cypress\\e2e\\web\\BuscarTest.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "44a7f812-e288-43ea-a20f-6809babeaa65",
+          "title": "Prueba de productos si estan en la plataforma",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "prueba de la palabra dress",
+              "fullTitle": "Prueba de productos si estan en la plataforma prueba de la palabra dress",
+              "timedOut": null,
+              "duration": 7067,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//si da resultados con dress\ncy.get('#search_query_top').type(\"dress\");\ncy.get(\"#searchbox > button\").click();\ncy.get('.heading-counter').should('not.contain', '0 results');",
+              "err": {},
+              "uuid": "939081b3-7048-4a39-918f-91cb7f90da99",
+              "parentUUID": "44a7f812-e288-43ea-a20f-6809babeaa65",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "prueba de que todos los elementos de la busqueda dress contenga la palabra",
+              "fullTitle": "Prueba de productos si estan en la plataforma prueba de que todos los elementos de la busqueda dress contenga la palabra",
+              "timedOut": null,
+              "duration": 6925,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "//debe fallar porque hay mas resultados que no tienen dress\ncy.get('#search_query_top').type(\"dress\");\ncy.get(\"#searchbox > button\").click();\ncy.get('ul.product_list li .product-name').should('contain', 'dress');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: expected '[ <a.product-name>, 6 more... ]' to contain 'dress'",
+                "estack": "AssertionError: Timed out retrying after 4000ms: expected '[ <a.product-name>, 6 more... ]' to contain 'dress'\n    at Context.eval (webpack://unidad3/./cypress/e2e/web/BuscarTest.cy.js:17:51)",
+                "diff": null
+              },
+              "uuid": "cfb44418-eb07-48e6-8542-0b9277641599",
+              "parentUUID": "44a7f812-e288-43ea-a20f-6809babeaa65",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "939081b3-7048-4a39-918f-91cb7f90da99"
+          ],
+          "failures": [
+            "cfb44418-eb07-48e6-8542-0b9277641599"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 13992,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-01-23T02:47:25.857Z",
+    "end": "2026-01-23T02:47:26.638Z",
+    "duration": 781,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "202c1344-e440-45ba-882b-c262f4e2e4e1",
+      "title": "",
+      "fullFile": "cypress\\e2e\\smoke\\smoke.basic.cy.js",
+      "file": "cypress\\e2e\\smoke\\smoke.basic.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "76e7f7d8-1706-42a2-a1b3-0e032752b200",
+          "title": "SMOKE",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "SMOKE WEB - Debe cargar la página de login",
+              "fullTitle": "SMOKE SMOKE WEB - Debe cargar la página de login",
+              "timedOut": null,
+              "duration": 751,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const urlcompleta = '/';\ncy.request('GET', urlcompleta).then(resp => {\n  expect(resp.status).to.eq(200);\n});\nit('SMOKE API - GET /posts debe responder 200', () => {\n  const apiBase = Cypress.env('API_JSON');\n  const url = `${apiBase}/posts`;\n  cy.request('GET', url).then(resp => {\n    expect(resp.status).to.eq(200);\n  });\n});",
+              "err": {},
+              "uuid": "48ec0d6b-60e7-45a6-bdb7-c432be642179",
+              "parentUUID": "76e7f7d8-1706-42a2-a1b3-0e032752b200",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "48ec0d6b-60e7-45a6-bdb7-c432be642179"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 751,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

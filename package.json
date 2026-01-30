@@ -1,0 +1,26 @@
+{
+  "name": "unidad3",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "cy:smoke": "cypress run --spec \"cypress/e2e/smoke/*.cy.js\"",
+    "cy:web": "cypress run --spec \"cypress/e2e/web/*.cy.js\"",
+    "cy:api": "cypress run --spec \"cypress/e2e/api/*.cy.js\"",
+    "report:merge": "mochawesome-merge cypress/reports/json/*.json > cypress/reports/report.json",
+    "report:html": "marge cypress/reports/report.json -f index -o cypress/reports/html",
+    "report": "npm run report:merge && npm run report:html" 
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "cypress": "^15.8.2",
+    "mochawesome": "^7.1.4",
+    "mochawesome-merge": "^5.1.0",
+    "mochawesome-report-generator": "^6.3.2"
+  }
+}

@@ -1,0 +1,124 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-01-23T02:47:20.640Z",
+    "end": "2026-01-23T02:47:21.233Z",
+    "duration": 593,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "440c36ec-2dd1-413c-b141-8222d9726fb3",
+      "title": "",
+      "fullFile": "cypress\\e2e\\api\\respuestaServidor.cy.js",
+      "file": "cypress\\e2e\\api\\respuestaServidor.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "b10ad138-41b9-4fc7-84f3-5bd5e3ef3047",
+          "title": "API - JSONPlaceholder (Posts)",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Primer test Get/posts",
+              "fullTitle": "API - JSONPlaceholder (Posts) Primer test Get/posts",
+              "timedOut": null,
+              "duration": 336,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Tomamos la URL base desde cypress.config.js (env.API_JSON)\nconst baseUrl = Cypress.env('API_JSON');\nconst endpoint = '/posts';\nconst urlCompleta = `${baseUrl}${endpoint}`;\n//https://jsonplaceholder.typicode.com/posts\n// Hacemos una petición HTTP GET al endpoint /posts\ncy.request('GET', urlCompleta).then(respuesta => {\n  // 1) Verificamos código de estado HTTP\n  expect(respuesta.status).to.eq(200);\n  // 2) Verificamos que el body sea un arreglo\n  expect(respuesta.body).to.be.an('array');\n  // 3) Verificamos que tenga 100 elementos (JSONPlaceholder tiene 100 posts)\n  expect(respuesta.body).to.have.length(100);\n  // 4) Verificamos la estructura del primer post\n  //    (que tenga: userId, id, title, body)\n  expect(respuesta.body[0]).to.have.all.keys('userId', 'id', 'title', 'body');\n});",
+              "err": {},
+              "uuid": "e4aa27d8-5415-4ce6-b656-f0ead953b363",
+              "parentUUID": "b10ad138-41b9-4fc7-84f3-5bd5e3ef3047",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "POST /posts - prueba 2",
+              "fullTitle": "API - JSONPlaceholder (Posts) POST /posts - prueba 2",
+              "timedOut": null,
+              "duration": 211,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const baseUrl = Cypress.env('API_JSON');\nconst endpoint = '/posts';\nconst urlCompleta = `${baseUrl}${endpoint}`;\n// Body que vamos a enviar en el POST\nconst dato = {\n  title: 'Post de prueba - Pablo',\n  body: 'Este es un post creado desde Cypress',\n  userId: 10\n};\n// En Cypress, para POST podemos pasar: método, url, body\ncy.request('POST', urlCompleta, dato).then(respuesta => {\n  // 1) Status esperado: 201 (Created)\n  expect(respuesta.status).to.eq(201);\n  // 2) La respuesta debe contener lo que enviamos\n  //    (JSONPlaceholder suele devolver el dato + un id)\n  expect(respuesta.body).to.include({\n    title: dato.title,\n    body: dato.body,\n    userId: dato.userId\n  });\n  // 3) Debe existir un id en la respuesta\n  expect(respuesta.body).to.have.property('id');\n  expect(respuesta.body.id).to.be.a('number'); // opcional (bonus)\n});",
+              "err": {},
+              "uuid": "bcc02975-2fce-4ede-b7c6-9772851b0a69",
+              "parentUUID": "b10ad138-41b9-4fc7-84f3-5bd5e3ef3047",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "e4aa27d8-5415-4ce6-b656-f0ead953b363",
+            "bcc02975-2fce-4ede-b7c6-9772851b0a69"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 547,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

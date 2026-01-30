@@ -1,0 +1,129 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 1,
+    "pending": 0,
+    "failures": 1,
+    "start": "2026-01-23T02:48:06.376Z",
+    "end": "2026-01-23T02:48:25.128Z",
+    "duration": 18752,
+    "testsRegistered": 2,
+    "passPercent": 50,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "7651f824-a734-4004-8a27-ad29c58ea78f",
+      "title": "",
+      "fullFile": "cypress\\e2e\\web\\PruebasEnTODOMVC.cy.js",
+      "file": "cypress\\e2e\\web\\PruebasEnTODOMVC.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "c9d904c6-d11c-4359-bdc6-f17f0fc738d3",
+          "title": "Prueba de pagina de tabla de tareas:",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "debe agregar y tachar las 5 primeras tareas usando POM",
+              "fullTitle": "Prueba de pagina de tabla de tareas: debe agregar y tachar las 5 primeras tareas usando POM",
+              "timedOut": null,
+              "duration": 2809,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.log(\"agregar tareas\");\nconst misTareas = [\"1) lavar trastes\", \"2) lavar ropa\", \"3) lavar carro\", \"4) ordenar cuarto\", \"5) barrer sala\"];\n_pomTODOMVC.listaFormulario.agregarTareas(misTareas);\ncy.log(\"tachar\");\n_pomTODOMVC.listaFormulario.tacharElementos(0);\n_pomTODOMVC.listaFormulario.tacharElementos(1);\n_pomTODOMVC.listaFormulario.tacharElementos(2);\n_pomTODOMVC.listaFormulario.tacharElementos(3);\ncy.get(\"#root > footer > ul > li:nth-child(2) > a\").click(); //activas\ncy.get(\"#root > footer > ul > li:nth-child(3) > a\").click(); //completadas\ncy.get(\"#root > footer > ul > li:nth-child(1) > a\").click(); //todas\ncy.get(\".clear-completed\").click(); //clear completed",
+              "err": {},
+              "uuid": "9eb24e4e-64a6-40d9-9fd7-f4e5d95863d6",
+              "parentUUID": "c9d904c6-d11c-4359-bdc6-f17f0fc738d3",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "debe recargar la página y verificar que la tarea 5 persiste",
+              "fullTitle": "Prueba de pagina de tabla de tareas: debe recargar la página y verificar que la tarea 5 persiste",
+              "timedOut": null,
+              "duration": 4631,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "// 1. Recargar la página\ncy.reload();\n// 2. Verificar que la quinta tarea (índice 4) sigue ahí\n_pomTODOMVC.listaFormulario.verificarTareaVisible(4, \"5) barrer la sala\");",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.todo-list li`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.todo-list li`, but never found it.\n    at Object.todoLista (webpack://unidad3/./cypress/pages/pomTODOMVC.JS:4:0)\n    at Formulario.verificarTareaVisible (webpack://unidad3/./cypress/pages/pomTODOMVC.JS:20:0)\n    at Context.eval (webpack://unidad3/./cypress/e2e/web/PruebasEnTODOMVC.cy.js:36:20)",
+                "diff": null
+              },
+              "uuid": "059f2c15-cdc8-4947-ad10-a5403de561b3",
+              "parentUUID": "c9d904c6-d11c-4359-bdc6-f17f0fc738d3",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "9eb24e4e-64a6-40d9-9fd7-f4e5d95863d6"
+          ],
+          "failures": [
+            "059f2c15-cdc8-4947-ad10-a5403de561b3"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 7440,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}
