@@ -16,7 +16,7 @@ Este proyecto implementa pruebas automatizadas **API** usando **Cypress**, sigui
 - Verificamos el status
 - Que la respuesta contenga lo que mandamos
 - Tambien que el json contenga un id
-- Verificamos que el con un Get el Post   <-----ERROR!!!!!!!!!!!!!!!!!!!!!!!!!!!
+- Verificamos que el con un Get el Post   <-----ERROR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!..
 
 
 ## (2) Api /api/StarWarApi.cy.js  //extraemos la url del cypress.config.js
