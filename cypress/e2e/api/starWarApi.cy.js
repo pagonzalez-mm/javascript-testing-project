@@ -20,10 +20,14 @@ it("primera prueba de star war",()=>{
   cy.request("GET",urlCompleta).then((respuesta)=>{
 
   //ASSERT
+  //validamos que sea 200
     expect(respuesta.status).to.eq(200);
+  //que el name sea Luke....
     expect(respuesta.body.name).to.eq("Luke Skywalker");
+  //body objeto
     expect(respuesta.body).to.be.an("object");
   //ASSERT
+  //verificar que los campos tengan la respuesta esperada
     expect(respuesta.body).to.include({
       height:datos.height,
       mass:datos.mass,

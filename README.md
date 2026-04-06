@@ -1,6 +1,9 @@
 # PROYECTO-TEST — API Testing con Cypress (JavaScript Avanzado)
 ## --------------------------ARCHIVOS PROBADOS API:-------------------------------------------------------
 
+
+## (1) Api /api/respuestaServidor.cy.js  //extraemos la url del cypress.config.js
+
 ## ▶️ Archivo probado: `/api/respuestaServidor.cy.js`
 Este proyecto implementa pruebas automatizadas **API** usando **Cypress**, siguiendo el patrón **AAA** y buenas prácticas de automatización. Se prueban endpoints públicos reales como **JSONPlaceholder**.
 ### ✔ Validaciones incluidas: **Esta prueba pasa correcta**
@@ -13,6 +16,11 @@ Este proyecto implementa pruebas automatizadas **API** usando **Cypress**, sigui
 - Verificamos el status
 - Que la respuesta contenga lo que mandamos
 - Tambien que el json contenga un id
+- Verificamos que el con un Get el Post   <-----ERROR!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+## (2) Api /api/StarWarApi.cy.js  //extraemos la url del cypress.config.js
+
 
 ## ▶️ Archivo probado: `/api/StarWarApi.cy.js`
 Este módulo contiene pruebas API contra el endpoint público de **https://swapi.dev/api** utilizando **Cypress**, aplicando el patrón **AAA** (Arrange – Act – Assert) y validaciones con Chai.
@@ -60,6 +68,10 @@ cypress/
 # PROYECTO-TEST — Web Testing con Cypress (JavaScript Avanzado)
 ## --------------------------ARCHIVOS PROBADOS WEB:-------------------------------------------------------
 Este proyecto implementa pruebas automatizadas  **WEB** usando **Cypress**, siguiendo el patrón **AAA (Arrange / Act / Assert)** y buenas prácticas de  automatización.
+
+
+## (3) WEB /web/BuscarTest.cy.js   //PROBLEMAS NO SE CONSIGUE RESPUESTA !!!!!!
+
 ## ▶️ Archivo probado: `/web/BuscarTest.cy.js`
 
 Se haran pruebas reales en **http://www.automationpractice.pl**
@@ -76,6 +88,9 @@ Este módulo valida la funcionalidad de **búsqueda de productos** en la tienda 
 - Buscar “dress”
 - Validar cada `.product-name`
 - Afirmar que todos contengan “dress”
+
+
+## (3) WEB /web/Login.cy.js     //USAMOS UN HOOK: beforeEach  y la url esta en cypress.config.js
 
 ## ▶️ Archivo probado: `/web/Login.cy.js`
 
@@ -99,6 +114,9 @@ Este módulo valida el comportamiento del **login con autenticación básica (Ba
 - Validar que el sistema muestre el mensaje de error: **"Congratulations! You must have the proper credentials."**  
   (mensaje por defecto del sitio ante fallo de autenticación)
 - Validar que la URL contenga: **"/basic_auth"**
+
+
+## (3) WEB /web/PruebaTestDOMMVC.cy.js   // USAMOS UN POM (PAGE OBJECT MODEL) Y UN HOOK = beforeEach
 
 ## ▶️ Archivo probado: `/web/PruebaTestDOMMVC.cy.js`
 
@@ -161,3 +179,32 @@ cypress/
     Login.cy.js
     PruebasEnTODOMVC.cy.js
 
+## Como crear un repositorio
+
+PASO 1: Inicializar Git 
+git init
+
+PASO 2: Agregar archivos
+git add .
+
+PASO 3: Crear un commit
+git commit -m "primer commit proyecto testing"
+Guarda una “foto” de tu proyecto
+Con un mensaje descriptivo
+
+PASO 4: Renombra la rama a main
+git branch -M main
+
+PASO 5: Crear repo en GitHub 
+New repository
+Nombre: "nombre"
+
+PASO 6: Conectar tu proyecto con GitHub
+git remote add origin https://github.com/TU_USUARIO/"nombre".git
+
+PASO 7: Subir el código
+git push -u origin main
+Crea la rama main
+
+🔥 RESULTADO
+https://github.com/TU_USUARIO/"nombre"

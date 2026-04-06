@@ -1,4 +1,3 @@
-
 /// <reference types="cypress" />    
 // solo es para completado y no marque errores
 
@@ -22,7 +21,7 @@ describe('API - JSONPlaceholder (Posts)', () => {
 
     //ASSERT
 
-      // 1) Verificamos código de estado HTTP
+      // 1) Verificamos código de estado HTTP (solicitud exitosa)
       expect(respuesta.status).to.eq(200);
 
       // 2) Verificamos que el body sea un arreglo
@@ -62,6 +61,7 @@ it('POST /posts - prueba 2', () => {
   
   //ASSERT
     // 1) Status esperado: 201 (Created)
+    //201 se ha creado un nuevo recurso en el servidor
     expect(respuesta.status).to.eq(201);
 
     // 2) La respuesta debe contener lo que enviamos
@@ -73,13 +73,25 @@ it('POST /posts - prueba 2', () => {
 
     // 3) Debe existir un id en la respuesta
     expect(respuesta.body).to.have.property('id');
-    expect(respuesta.body.id).to.be.a('number'); // opcional (bonus)
   });
+
+
+// //Validar con Get el Post
+// cy.request('POST', urlCompleta, dato).then((postRespuesta) => {
+//   const nuevoId = postRespuesta.body.id;
+
+//   cy.request('GET', `${urlCompleta}/${nuevoId}`).then((getRespuesta) => {
+//     expect(getRespuesta.status).to.eq(200);
+//     expect(getRespuesta.body).to.include({
+//       title: dato.title,
+//       body: dato.body,
+//       userId: dato.userId
+//     });
+//   });
+// });
+
 });
-
-
 });
-
 
 //verificamos una direccion y vemos que contiene un arrays or json
 //verificamos el status code:200 que es OK
@@ -91,6 +103,7 @@ it('POST /posts - prueba 2', () => {
 //verificamos el status
 //que la respuesta contenga lo que mandamos
 //y que el json contenga un id
+//Verificamos que el con un Get el Post   <-----ERROR
 
 
 

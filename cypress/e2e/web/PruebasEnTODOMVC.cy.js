@@ -1,6 +1,6 @@
 import { listaFormulario } from "../../pages/pomTODOMVC.JS";
 
-describe("Prueba de pagina de tabla de tareas:", () => { 
+describe("PRIMERA PARTE: Prueba de pagina de tabla de tareas:", () => { 
     //ARRANGE
     beforeEach(() => {
         cy.visit(Cypress.env("TODO_MVC_URL"));
@@ -8,7 +8,7 @@ describe("Prueba de pagina de tabla de tareas:", () => {
 
   
 
-    it("debe agregar y tachar las 5 primeras tareas usando POM", () => { 
+    it("debe agregar y tachar las 4 primeras tareas usando POM", () => { 
         cy.log("agregar tareas") 
         const misTareas = ["1) lavar trastes", "2) lavar ropa", "3) lavar carro", "4) ordenar cuarto", "5) barrer sala"];
         listaFormulario.agregarTareas(misTareas);
@@ -28,7 +28,10 @@ describe("Prueba de pagina de tabla de tareas:", () => {
 
     });
 
-    it("debe recargar la página y verificar que la tarea 5 persiste", () => {
+
+
+
+    it("SEGUNDA PARTE: debe recargar la página y verificar que la tarea 5 persiste", () => {
     //ASSERT
     // 1. Recargar la página
     cy.reload();

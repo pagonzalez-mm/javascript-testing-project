@@ -13,11 +13,15 @@ describe('Login a https://the-internet.herokuapp.com/', () => {
 
   //ACT
     cy.get("#content > ul > li:nth-child(3) > a").click
+  //1. lo tenemos que hacer asi ya que la identificacion tiene un popup y no es parte del DOM no se maneja con cy.get
+  //1. cypress no puede escribir ahi entonces colocamos los datos en la URL
     cy.visit('https://admin:admin@the-internet.herokuapp.com/basic_auth')
   
   //ASSET
+  //QUE SALGA EL TEXTO
     cy.get('p').should('contain', 'Congratulations! You must have the proper credentials.')
     cy.log("validando la url");
+  //URL CON ESTA DIRECCION
     cy.url().should('include', '/basic_auth');
 
   });
